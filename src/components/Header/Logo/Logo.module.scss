@@ -1,0 +1,21 @@
+@import "../../../assets/variables.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+
+  & .logo img{
+    height: 40px;
+    width: auto;
+    filter: invert(1);
+  }
+
+  & .logotype {
+    color: $red;
+    font-family: 'Racing Sans One', cursive;
+    font-size: 32px;
+    letter-spacing: 0.4;
+    line-height: 40px;
+    margin: 0 12px;
+  }
+}

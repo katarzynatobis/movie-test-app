@@ -1,8 +1,11 @@
 .container {
   padding: 20px 0;
   display: flex;
+  justify-content: space-between;
 
-  &.item {
+  & .item {
     flex-basis: 30%;
+    display: flex;
+    align-items: center;
   }
 }
