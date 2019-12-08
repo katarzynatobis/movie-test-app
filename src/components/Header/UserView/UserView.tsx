@@ -1,10 +1,15 @@
-import React from 'react';
-import styles from './UserView.module.scss';
+import React from "react";
+import styles from "./UserView.module.scss";
 
 const UserView: React.FC = () => (
   <div className={styles.container}>
-    <div className={styles.loggedAs}>Logged in as <span className={styles.user}> Puglife</span></div>
-    <div className={styles.avatar}/>
+    <div className={styles.loggedAsContainer}>
+      <div className={styles.logged}>Logged in as </div>
+      <div className={styles.user}>
+        Puglife bjfhjsklsjl;kl;skjldk'so'p'
+      </div>
+    </div>
+    <div className={styles.avatar} />
   </div>
 );
 

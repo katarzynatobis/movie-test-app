@@ -7,6 +7,10 @@
   padding: 0 40px;
   max-width: 1440px;
   margin: 0 auto;
-  font-size: $default-font-size
+  font-size: $default-font-size;
+
+  @media screen and (max-width: 500px) {
+    padding: 0 20px;
+  }
 }
 

@@ -3,6 +3,7 @@
 .container {
   display: flex;
   align-items: center;
+  justify-self: flex-start;
 
   & .logo {
     height: 40px;
@@ -23,5 +24,10 @@
     letter-spacing: 0.4;
     line-height: 40px;
     margin: 0 12px;
+  }
+
+  @media screen and (max-width: 360px) {
+    transform: scale(.8);
+    transform-origin: left;
   }
 }
