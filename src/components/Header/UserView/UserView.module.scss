@@ -1,0 +1,25 @@
+@import '../../../assets/variables.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+
+  & .loggedAs {
+    text-align: right;
+
+    & .user {
+      color: $red;
+    }
+  }
+
+  & .avatar {
+    margin-left: 12px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: url('../../../assets/pug.jpg') no-repeat center;
+    background-size: cover;
+    flex-shrink: 0;
+  }
+}

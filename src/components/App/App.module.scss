@@ -1,9 +1,12 @@
-.App {
+@import '../../assets/variables.scss';
+
+.app {
   background: inherit;
   height: 100%;
   overflow: hidden;
   padding: 0 40px;
   max-width: 1440px;
   margin: 0 auto;
+  font-size: $default-font-size
 }
 

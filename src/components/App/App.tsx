@@ -16,7 +16,7 @@ const App: React.FC = () => {
         setValue: ev => setSearchState(ev.target.value)
       }}
     >
-      <div className={styles.App}>
+      <div className={styles.app}>
         <Header />
       </div>
     </SearchContext.Provider>
