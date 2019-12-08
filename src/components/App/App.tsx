@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, createContext } from "react";
+import styles from "./App.module.scss";
+import Header from "../Header/Header";
+
+export const SearchContext = createContext<{
+  value?: string;
+  setValue: (event: React.ChangeEvent<HTMLInputElement>) => string | void;
+}>({ value: undefined, setValue: () => {} });
 
 const App: React.FC = () => {
+  const [searchState, setSearchState] = useState<string | undefined>(undefined);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SearchContext.Provider
+      value={{
+        value: searchState,
+        setValue: ev => setSearchState(ev.target.value)
+      }}
+    >
+      <div className={styles.app}>
+        <Header />
+      </div>
+    </SearchContext.Provider>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,79 @@
+@import "../../../assets/variables.scss";
+
+.container {
+  width: 100%;
+  position: relative;
+
+  & .absoluteWrapper {
+    width: 100%;
+
+    & .searchInput {
+      background: white;
+      display: flex;
+      height: 40px;
+      border-radius: 20px;
+      width: 100%;
+      border: none;
+      padding: 10px 10px 10px 48px;
+      box-sizing: border-box;
+      font-family: $font-sans;
+      font-weight: light;
+      font-size: $default-font-size;
+      color: $primary-background;
+      transition: padding-left ease 300ms;
+      min-width: 296px;
+
+      &::placeholder {
+        color: #9f9595;
+        font-style: italic;
+      }
+
+      &:focus {
+        box-shadow: 0px 0px 10px 0px $red;
+        outline: none;
+      }
+
+      @media screen and (max-width: 900px) {
+        min-width: unset;
+      }
+    }
+
+    & .searchIcon {
+      position: absolute;
+      top: 8px;
+      left: 17px;
+      pointer-events: none;
+      transition: left 300ms ease-in-out;
+
+      & > svg {
+        width: 24px;
+        color: $primary-background;
+      }
+    }
+
+    @media screen and (max-width: 750px) {
+      width: 40px;
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      top: -20px;
+      transition: width 300ms ease-in-out;
+
+      & .searchInput {
+        &:not(:focus) {
+          padding-left: 30px;
+        }
+      }
+
+      &:focus-within {
+        width: 50vw;
+      }
+
+      &:not(:focus-within) {
+        & .searchIcon {
+          transform: translateX(-9px);
+        }
+      }
+    }
+  }
+}

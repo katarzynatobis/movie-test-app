@@ -1,0 +1,33 @@
+@import "../../../assets/variables.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-self: flex-start;
+
+  & .logo {
+    height: 40px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+
+    & svg {
+      width: 53px;
+      color: $red;
+    }
+  }
+
+  & .logotype {
+    color: $red;
+    font-family: "Racing Sans One", cursive;
+    font-size: 32px;
+    letter-spacing: 0.4;
+    line-height: 40px;
+    margin: 0 12px;
+  }
+
+  @media screen and (max-width: 360px) {
+    transform: scale(.8);
+    transform-origin: left;
+  }
+}

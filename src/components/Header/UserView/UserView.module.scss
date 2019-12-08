@@ -1,0 +1,50 @@
+@import "../../../assets/variables.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+
+  & .loggedAsContainer {
+    margin-left: 12px;
+    overflow: hidden;
+    display: flex;
+    margin-left: 12px;
+    text-align: right;
+    justify-content: flex-end;
+
+    & > div {
+      white-space: nowrap;
+    }
+
+    & .logged {
+      margin-right: 6px;
+
+      @media screen and (max-width: 900px) {
+        display: none;
+      }
+    }
+
+    & .user {
+      color: $red;
+      max-width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+    }
+
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+
+  & .avatar {
+    margin-left: 12px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: url("../../../assets/pug.jpg") no-repeat center;
+    background-size: cover;
+    flex-shrink: 0;
+  }
+}
