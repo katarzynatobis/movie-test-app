@@ -4,15 +4,21 @@
   display: flex;
   align-items: center;
 
-  & .logo img{
+  & .logo {
     height: 40px;
-    width: auto;
-    filter: invert(1);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+
+    & svg {
+      width: 53px;
+      color: $red;
+    }
   }
 
   & .logotype {
     color: $red;
-    font-family: 'Racing Sans One', cursive;
+    font-family: "Racing Sans One", cursive;
     font-size: 32px;
     letter-spacing: 0.4;
     line-height: 40px;

@@ -1,0 +1,42 @@
+@import "../../../assets/variables.scss";
+
+.container {
+  width: 100%;
+  position: relative;
+
+  & .searchInput {
+    background: white;
+    display: flex;
+    height: 40px;
+    border-radius: 20px;
+    width: 100%;
+    border: none;
+    padding: 10px 10px 10px 48px;
+    box-sizing: border-box;
+    font-family: $font-sans;
+    font-weight: light;
+    font-size: $default-font-size;
+    color: $primary-background;
+
+    &::placeholder {
+      color: #9F9595;
+      font-style: italic;
+    }
+
+    &:focus {
+      box-shadow: 0px 0px 10px 0px $red;
+      outline: none;
+    }
+  }
+
+  & .searchIcon {
+    position: absolute;
+    top: 8px;
+    left: 17px;
+
+    & > svg {
+      width: 24px;
+      color: $primary-background;
+    }
+  }
+}
