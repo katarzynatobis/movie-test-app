@@ -1,4 +1,4 @@
-export interface Movie {
+export interface FetchedMovie {
   id: number;
   title: string;
   year: string;
@@ -9,11 +9,15 @@ export interface Movie {
   plot: string;
   genres: string[];
   actorIds: string[];
-  runtime: string
+  runtime: string;
 }
 
+export type MovieWithActorNames = Omit<FetchedMovie, "actorIds"> & {
+  actors: string[];
+};
+
 export interface Actor {
-  id: number;
+  id: string;
   fistName: string;
   lastName: string;
 }
