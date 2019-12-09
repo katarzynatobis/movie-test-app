@@ -1,5 +1,7 @@
+@import '../../assets/css/variables.scss';
+
 .container {
-  padding: 20px 0;
+  padding: $default-padding-small $default-padding;
   display: flex;
   justify-content: space-between;
 
@@ -16,5 +18,9 @@
         flex-basis: 100%
       }
     }
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: $default-padding-small;
   }
 }

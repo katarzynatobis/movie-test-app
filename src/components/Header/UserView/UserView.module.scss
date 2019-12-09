@@ -1,4 +1,4 @@
-@import "../../../assets/variables.scss";
+@import "../../../assets/css/variables.scss";
 
 .container {
   display: flex;
@@ -43,7 +43,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: url("../../../assets/pug.jpg") no-repeat center;
+    background: url("../../../assets/images/pug.jpg") no-repeat center;
     background-size: cover;
     flex-shrink: 0;
   }

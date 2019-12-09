@@ -1,0 +1,18 @@
+@import '../../assets/css/variables';
+
+.container {
+  overflow: auto;
+  padding: 0 $default-padding;
+  flex-basis: 100%;
+  box-sizing: border-box;
+
+  & .grid {
+    display: flex;
+    margin: 0 -12px;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 0 $default-padding-small;
+  }
+}

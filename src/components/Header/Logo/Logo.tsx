@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Logo.module.scss';
-import { ReactComponent as Film} from "../../../assets/film-solid.svg";
+import { ReactComponent as Film} from "../../../assets/images/film-solid.svg";
 
 const Logo: React.FC = () => (
   <div className={styles.container}>
