@@ -1,0 +1,43 @@
+@import "../../assets/css/variables";
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+
+  & .progressSpin:indeterminate {
+    appearance: none;
+    display: block;
+    background: none;
+    width: 40px;
+    height: 40px;
+    border: 5px solid;
+    border-color: $red $primary-background;
+    border-radius: 50%;
+    animation: spin 1s infinite;
+  }
+
+  & .progressSpin:indeterminate::-moz-progress-bar {
+    background: none;
+  }
+
+  & .progressSpin:indeterminate::-webkit-progress-bar {
+    display: none;
+  }
+  
+  & .progressSpin:indeterminate::-ms-fill {
+    animation-name: none;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
