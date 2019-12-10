@@ -1,6 +1,7 @@
 import React, { useState, createContext } from "react";
 import styles from "./App.module.scss";
 import Header from "../Header/Header";
+import CardGrid from "../CardGrid/CardGrid";
 
 export const SearchContext = createContext<{
   value?: string;
@@ -18,6 +19,7 @@ const App: React.FC = () => {
     >
       <div className={styles.app}>
         <Header />
+        <CardGrid />
       </div>
     </SearchContext.Provider>
   );

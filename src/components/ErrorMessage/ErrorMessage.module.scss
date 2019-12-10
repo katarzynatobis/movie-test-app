@@ -1,0 +1,19 @@
+@import "../../assets/css/variables";
+
+.container {
+  position: fixed;
+  top: 100px;
+  right: 10px;
+  padding: $default-padding-small;
+  background: $red;
+
+  button {
+    border: none;
+    background: none;
+    padding: 0 10px;
+    font-family: $font-sans;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+  }
+}
