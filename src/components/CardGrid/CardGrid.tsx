@@ -37,24 +37,40 @@ const CardGrid: React.FC = () => {
           return { ...movie, actors: actorNames };
         });
         setMovies(moviesWithActors);
+        setLoading(false);
       })
-      .catch(reason => setError(String(reason)))
-      .finally(() => setLoading(false));
+      .catch(reason => {
+        setError(String(reason));
+        setLoading(false);
+      });
   }, []);
 
   const searchResults = !!searchValue
-    ? movies.filter(movie => movie.title.includes(searchValue))
+    ? movies.filter(movie =>
+        movie.title.toLowerCase().includes(searchValue.toLowerCase())
+      )
     : movies;
 
   return (
     <main className={styles.container}>
       <div className={styles.grid}>
-        {loading && <Loader />}
-        {searchResults.map(movie => (
-          <div className={styles.item} key={movie.id}>
-            <Card movie={movie} />
-          </div>
-        ))}
+        {(loading && <Loader />) ||
+          searchResults.map((movie, index) => {
+            const handleImageError = () => {
+              const newMovie: MovieWithActorNames = {
+                ...movie,
+                posterUrl: undefined
+              };
+              const newMoviesState = [...movies];
+              newMoviesState.splice(index, 1, newMovie);
+              setMovies(newMoviesState);
+            };
+            return (
+              <div className={styles.item} key={movie.id}>
+                <Card movie={movie} onImageError={handleImageError} />
+              </div>
+            );
+          })}
         {error && (
           <ErrorMessage
             message={error}

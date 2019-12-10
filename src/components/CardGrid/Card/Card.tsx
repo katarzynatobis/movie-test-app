@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import styles from "./Card.module.scss";
 import { MovieWithActorNames } from "../../../types";
+import Loader from "../../Loader/Loader";
 
 interface CardProps {
   movie: MovieWithActorNames;
+  onImageError: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ movie }) => {
-  const [imageUrl, setImageUrl] = useState(movie.posterUrl);
+const Card: React.FC<CardProps> = ({ movie, onImageError }) => {
+  const [loadingImage, setLoadingImage] = useState(!!movie.posterUrl);
+
+  const handleImageError = () => {
+    onImageError();
+    setLoadingImage(false);
+  }
+
   return (
     <section className={styles.card}>
       <a
@@ -16,12 +24,14 @@ const Card: React.FC<CardProps> = ({ movie }) => {
         rel="noopener noreferrer"
         className={styles.anchor}
       >
-        {imageUrl && (
+        {loadingImage && <Loader />}
+        {movie.posterUrl && (
           <img
-            src={imageUrl}
+            src={movie.posterUrl}
             alt="poster"
             className={styles.background}
-            onError={() => setImageUrl(undefined)}
+            onError={handleImageError}
+            onLoadedData={() => setLoadingImage(false)}
           />
         )}
         <div className={styles.infoContainer}>
