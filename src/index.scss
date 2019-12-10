@@ -1,3 +1,5 @@
+@import "./assets/css/variables";
+
 html, body, #root {
   margin: 0;
   font-family: 'IBM Plex Sans', 'Helvetica Neue', 'Arial', sans-serif;
@@ -5,6 +7,6 @@ html, body, #root {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   overflow: hidden;
-  background: #0A0A0A;
+  background: $primary-background;
   color: white;
 }
