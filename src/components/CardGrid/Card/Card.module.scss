@@ -1,7 +1,7 @@
 @import "../../../assets/css/variables";
 
 .card {
-  border-radius: 28px;
+  border-radius: $item-radius;
   height: 437px;
   position: relative;
   overflow: hidden;
@@ -12,14 +12,76 @@
     url("../../../assets/images/images-solid.svg") darken($gray, 50%) center
       no-repeat;
   background-size: 50%;
+  transition: box-shadow 300ms ease-in-out;
 
-  & .background {
+  & .anchor {
     display: block;
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+
+    & .background {
+      display: block;
+      position: absolute;
+      min-width: 100%;
+      min-height: 100%;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+    }
+
+    & .infoContainer {
+      margin-top: auto;
+      margin-bottom: 0;
+      padding: $item-padding;
+      position: relative;
+      z-index: 1;
+      background: rgba($primary-background, 0.8);
+
+      & .title {
+        color: $red;
+        font-size: 24px;
+        line-height: 31px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      & .rating {
+        font-family: $font-mono;
+        color: $gray;
+        margin: 6px 0;
+
+        & b {
+          color: white
+        }
+      }
+
+      & .description {
+        max-height: 0px;
+        transition: max-height 300ms ease-in-out;
+        overflow: hidden;
+
+        & p {
+          margin: 0;
+          font-size: 10px;
+          line-height: 15px;
+  
+          &.plot {
+            font-family: $font-serif;
+          }
+        }
+      }
+    }
+  }
+
+  
+  &:hover {
+    box-shadow: -4px 4px 0px 0px $red;
+
+    & .anchor .description {
+      max-height: 180px;
+    }
   }
 }

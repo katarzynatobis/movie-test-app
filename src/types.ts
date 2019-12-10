@@ -3,9 +3,9 @@ export interface FetchedMovie {
   title: string;
   year: string;
   pageUrl: string;
-  posterUrl: string;
+  posterUrl?: string;
   director: string;
-  rating: number;
+  rating?: number;
   plot: string;
   genres: string[];
   actorIds: string[];

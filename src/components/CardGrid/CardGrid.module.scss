@@ -8,12 +8,12 @@
 
   & .grid {
     display: flex;
-    margin: 0 -14px;
+    margin: 0 calc(#{$item-padding} / -2);
     flex-wrap: wrap;
     min-height: 50vh;
 
     & .item {
-      padding: 0 14px 24px 14px;
+      padding: 0 calc(#{$item-padding} / 2) 24px calc(#{$item-padding} / 2);
       flex: 1 1 33%;
       box-sizing: border-box;
     }
