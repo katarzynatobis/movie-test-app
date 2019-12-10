@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "./CardGrid.module.scss";
 import { fetchData, getActorName } from "../../utils";
 import { Actor, FetchedMovie, MovieWithActorNames } from "../../types";
@@ -7,13 +7,13 @@ import Card from "./Card/Card";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import * as moviesFile from "../../assets/movies.json";
 import * as actorsFile from "../../assets/actors.json";
+import { SearchContext } from "../App/App";
 
 const CardGrid: React.FC = () => {
-  const [movies, setMovies] = useState<Array<MovieWithActorNames> | undefined>(
-    undefined
-  );
+  const [movies, setMovies] = useState<Array<MovieWithActorNames>>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | undefined>(undefined);
+  const { value: searchValue } = useContext(SearchContext);
 
   useEffect(() => {
     // const moviesPromise = fetchData<Array<FetchedMovie>>(
@@ -42,16 +42,19 @@ const CardGrid: React.FC = () => {
       .finally(() => setLoading(false));
   }, []);
 
+  const searchResults = !!searchValue
+    ? movies.filter(movie => movie.title.includes(searchValue))
+    : movies;
+
   return (
     <main className={styles.container}>
       <div className={styles.grid}>
         {loading && <Loader />}
-        {movies &&
-          movies.map(movie => (
-            <div className={styles.item} key={movie.id}>
-              <Card movie={movie} />
-            </div>
-          ))}
+        {searchResults.map(movie => (
+          <div className={styles.item} key={movie.id}>
+            <Card movie={movie} />
+          </div>
+        ))}
         {error && (
           <ErrorMessage
             message={error}
