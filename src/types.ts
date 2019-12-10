@@ -18,6 +18,6 @@ export type MovieWithActorNames = Omit<FetchedMovie, "actorIds"> & {
 
 export interface Actor {
   id: string;
-  fistName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
 }

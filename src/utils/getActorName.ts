@@ -5,5 +5,5 @@ export const getActorName = (id: string, actors: Array<Actor>): string => {
   if (!actor) {
     return "Unknown Unknown";
   }
-  return `${actor.fistName} ${actor.lastName}`;
+  return `${actor.first_name} ${actor.last_name}`;
 };
