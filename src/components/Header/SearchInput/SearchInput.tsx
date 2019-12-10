@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styles from "./SearchInput.module.scss";
 import { SearchContext } from "../../App/App";
-import { ReactComponent as SearchIcon } from "../../../assets/images/search-solid.svg";
+import SearchIcon from "../../../assets/images/SearchIcon";
 
 const SearchInput: React.FC = () => {
   const { value, setValue } = useContext(SearchContext);

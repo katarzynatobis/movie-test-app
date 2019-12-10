@@ -5,8 +5,8 @@ import { Actor, FetchedMovie, MovieWithActorNames } from "../../types";
 import Loader from "../Loader/Loader";
 import Card from "./Card/Card";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import * as moviesFile from "../../assets/movies.json";
-import * as actorsFile from "../../assets/actors.json";
+// import * as moviesFile from "../../assets/movies.json";
+// import * as actorsFile from "../../assets/actors.json";
 import { SearchContext } from "../App/App";
 
 const CardGrid: React.FC = () => {
@@ -16,19 +16,20 @@ const CardGrid: React.FC = () => {
   const { value: searchValue } = useContext(SearchContext);
 
   useEffect(() => {
-    // const moviesPromise = fetchData<Array<FetchedMovie>>(
-    //   "https://0zrzc6qbtj.execute-api.us-east-1.amazonaws.com/kinside/movies"
-    // );
-    // const actorsPromise = fetchData<Array<Actor>>(
-    //   "https://0zrzc6qbtj.execute-api.us-east-1.amazonaws.com/kinside/actors"
-    // );
+    const moviesPromise = fetchData<Array<FetchedMovie>>(
+      "https://0zrzc6qbtj.execute-api.us-east-1.amazonaws.com/kinside/movies"
+    );
+    const actorsPromise = fetchData<Array<Actor>>(
+      "https://0zrzc6qbtj.execute-api.us-east-1.amazonaws.com/kinside/actors"
+    );
 
-    const moviesPromise = Promise.resolve(
-      JSON.parse(JSON.stringify((moviesFile as any).default))
-    );
-    const actorsPromise = Promise.resolve(
-      JSON.parse(JSON.stringify((actorsFile as any).default))
-    );
+    // mocked data to development
+    // const moviesPromise = Promise.resolve(
+    //   JSON.parse(JSON.stringify((moviesFile as any).default))
+    // );
+    // const actorsPromise = Promise.resolve(
+    //   JSON.parse(JSON.stringify((actorsFile as any).default))
+    // );
 
     Promise.all([moviesPromise, actorsPromise])
       .then(([movies, actors]) => {
