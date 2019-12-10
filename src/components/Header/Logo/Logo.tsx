@@ -5,7 +5,7 @@ import { ReactComponent as Film} from "../../../assets/images/film-solid.svg";
 const Logo: React.FC = () => (
   <div className={styles.container}>
     <div className={styles.logo}><Film /></div>
-    <div className={styles.logotype}>Cinematch</div>
+    <h1 className={styles.logotype}>Cinematch</h1>
   </div>
 );
 

@@ -3,9 +3,9 @@ export interface FetchedMovie {
   title: string;
   year: string;
   pageUrl: string;
-  posterUrl: string;
+  posterUrl?: string;
   director: string;
-  rating: number;
+  rating?: number;
   plot: string;
   genres: string[];
   actorIds: string[];
@@ -18,6 +18,6 @@ export type MovieWithActorNames = Omit<FetchedMovie, "actorIds"> & {
 
 export interface Actor {
   id: string;
-  fistName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
 }
