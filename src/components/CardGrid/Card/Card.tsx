@@ -7,10 +7,12 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ movie }) => {
+
   return (
-    <div>
-      {movie.actors.map(act => <div>{act}</div>)}
-    </div>
+    <section className={styles.card}>
+      <img src={movie.posterUrl} className={styles.background}/>
+      {movie.actors.map(act => <div key={act}>{String(act)}</div>)}
+    </section>
   );
 };
 

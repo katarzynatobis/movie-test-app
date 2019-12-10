@@ -23,8 +23,12 @@ const CardGrid: React.FC = () => {
     //   "https://0zrzc6qbtj.execute-api.us-east-1.amazonaws.com/kinside/actors"
     // );
 
-    const moviesPromise = Promise.resolve(JSON.parse(JSON.stringify((moviesFile as any).default)));
-    const actorsPromise = Promise.resolve(JSON.parse(JSON.stringify((actorsFile as any).default)));
+    const moviesPromise = Promise.resolve(
+      JSON.parse(JSON.stringify((moviesFile as any).default))
+    );
+    const actorsPromise = Promise.resolve(
+      JSON.parse(JSON.stringify((actorsFile as any).default))
+    );
 
     Promise.all([moviesPromise, actorsPromise])
       .then(([movies, actors]) => {
@@ -42,7 +46,12 @@ const CardGrid: React.FC = () => {
     <main className={styles.container}>
       <div className={styles.grid}>
         {loading && <Loader />}
-        {movies && movies.map(movie => <Card movie={movie} />)}
+        {movies &&
+          movies.map(movie => (
+            <div className={styles.item} key={movie.id}>
+              <Card movie={movie} />
+            </div>
+          ))}
         {error && (
           <ErrorMessage
             message={error}

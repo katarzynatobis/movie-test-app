@@ -1,0 +1,25 @@
+@import "../../../assets/css/variables";
+
+.card {
+  border-radius: 28px;
+  height: 437px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+      rgba($primary-background, 0.7),
+      rgba($primary-background, 0)
+    ),
+    url("../../../assets/images/images-solid.svg") darken($gray, 50%) center
+      no-repeat;
+  background-size: 50%;
+
+  & .background {
+    display: block;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
+}
