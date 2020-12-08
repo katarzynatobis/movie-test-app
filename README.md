@@ -1,6 +1,6 @@
 # Movie React App
 
-**Live demo: [click](https://ktobis.github.io/movie-test-app/index.html)** <br />
+**Live demo: [click](https://katarzynatobis.github.io/movie-test-app/)** <br />
 *Simple React app with Typescripts and SCSS.*
 
 ## Design
